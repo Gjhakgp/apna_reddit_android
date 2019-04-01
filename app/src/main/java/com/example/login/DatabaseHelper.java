@@ -178,6 +178,25 @@ public class DatabaseHelper  extends SQLiteOpenHelper {
         }while(cursor.moveToNext());
         return data;
     }
+
+    public String[] getSubreddit(){
+        SQLiteDatabase db=this.getReadableDatabase();
+        String[] columns={COL_12};
+        Cursor cursor=db.query(TABLE_NAME_SUBREDDIT,columns,null,null,null,null,null);
+        if(cursor!=null){
+            cursor.moveToFirst();
+        }
+        if(cursor.getCount()==0){
+            return null;
+        }
+        String[] data=new String[cursor.getCount()];
+        int i=0;
+        do{
+            data[i]=cursor.getString(0);
+            i=i+1;
+        }while(cursor.moveToNext());
+        return data;
+    }
 //    public StringBuilder getPost(String username){
 //        SQLiteDatabase db=this.getReadableDatabase();
 //        String[] columns={COL_9,COL_11};

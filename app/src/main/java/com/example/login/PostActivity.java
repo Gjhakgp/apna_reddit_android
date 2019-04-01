@@ -1,5 +1,6 @@
 package com.example.login;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -11,27 +12,25 @@ import android.widget.Toast;
 
 public class PostActivity extends AppCompatActivity {
 
+    TextView mSetSubredditname;
     TextView mTextusername;
     EditText mTextPost;
     Button mButtonSubmit;
     TextView mTextDisplayPost;
     TextView mTextDisplayComment;
     Button mNextButton;
-    EditText mTextCreateSubreddit;
-    Button mButtonCreateSubreddit;
     EditText mTextCreateComment;
     Button mButtonnComment;
-
+    Button mButtonSubreddits;
     LinearLayout mReplySection;
     DatabaseHelper db;
     String username;
 
     String current_post_id;
-    String current_subreddit_name="PYTHON";
+    String current_subreddit_name="python";
     String[][]  post;
     int post_index=0;
     int num_of_post;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,27 +41,13 @@ public class PostActivity extends AppCompatActivity {
         username=db.getUsername();
         mTextusername=(TextView)findViewById(R.id.profile_username);
         mTextusername.setText(username);
+        final Intent intent;
+        intent=getIntent();
+        current_subreddit_name=intent.getStringExtra("subreddit_name");
 
-
-
-        //CODE FOR CREATING A SUBREDDIT
-        mTextCreateSubreddit=(EditText)findViewById(R.id.create_subreddit);
-        mButtonCreateSubreddit=(Button)findViewById(R.id.create_subreddit_button);
-        mButtonCreateSubreddit.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view){
-                String subreddit_name=mTextCreateSubreddit.getText().toString().trim();
-                long res=db.addSubreddit(subreddit_name,username);
-                if(res>=0){
-                    mTextCreateSubreddit.setText("");
-                    //ADD CODE FOR APPENDING THIS SUBREDDIT ON THE WALL
-                }
-                else{
-                    Toast.makeText(PostActivity.this,"Subreddit Already Exist!",Toast.LENGTH_SHORT).show();
-                }
-            }
-
-        });
+        //CODE FOR SETTING SUBREDDIT NAME ON TOP OF THE WALL
+        mSetSubredditname=(TextView) findViewById(R.id.set_subreddit_name);
+        mSetSubredditname.setText("r/"+current_subreddit_name);
 
 
         //CODE FOR CREATING A POST WITHIN A SUBREDDIT
@@ -159,6 +144,16 @@ public class PostActivity extends AppCompatActivity {
                     }
 
                 }
+            }
+        });
+
+        //CODE FOR REDIRECTING TO SUBREDDIT PAGE
+        mButtonSubreddits=(Button)findViewById(R.id.go_to_subreddit);
+        mButtonSubreddits.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent1=new Intent(PostActivity.this,Subreddit.class);
+                startActivity(intent1);
             }
         });
 

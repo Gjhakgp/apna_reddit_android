@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
                 if(res==true){
 //                   String username1=db.getUsername();
 //                    Toast.makeText(MainActivity.this,username1,Toast.LENGTH_SHORT).show();
-                    Intent intent=new Intent(MainActivity.this,PostActivity.class);
+                    Intent intent=new Intent(MainActivity.this,Subreddit.class);
                     startActivity(intent);
                 }
                 else{

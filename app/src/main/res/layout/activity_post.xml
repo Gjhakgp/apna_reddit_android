@@ -23,21 +23,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="40dp" />
         </LinearLayout>
-        <LinearLayout
+        <TextView
+            android:id="@+id/set_subreddit_name"
             android:layout_width="wrap_content"
-            android:layout_height="100dp"
-            android:orientation="horizontal">
-            <EditText
-                android:id="@+id/create_subreddit"
-                android:layout_width="150dp"
-                android:layout_height="60dp"
-                android:hint="Create Subreddit"/>
-            <Button
-                android:id="@+id/create_subreddit_button"
-                android:layout_width="wrap_content"
-                android:layout_height="60dp"
-                android:text="Create"/>
-        </LinearLayout>
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="@color/colorAccent"
+            android:textSize="20dp"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -53,35 +45,54 @@
                 <EditText
                     android:id="@+id/post_content"
                     android:layout_width="200dp"
-                    android:layout_height="100dp" />
+                    android:layout_height="40dp" />
                 <Button
                     android:id="@+id/post_submit"
                     android:layout_width="wrap_content"
                     android:layout_height="40dp"
                     android:text="Post"/>
                 <TextView
-                    android:id="@+id/display_post"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:text="Post:->"
+                    android:textStyle="bold"
+                    android:textSize="20dp"/>
                 <TextView
-                    android:id="@+id/display_comment"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:id="@+id/display_post"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="30dp"/>
                 <LinearLayout
                     android:id="@+id/reply_section"
                     android:layout_width="wrap_content"
-                    android:layout_height="60dp"
-                    android:orientation="horizontal">
-                    <EditText
-                        android:id="@+id/create_comment"
-                        android:layout_width="150dp"
-                        android:layout_height="40dp"
-                        android:hint="Reply..."/>
-                    <Button
-                        android:id="@+id/comment_button"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/comment_header"
                         android:layout_width="wrap_content"
-                        android:layout_height="40dp"
-                        android:text="Post"/>
+                        android:layout_height="wrap_content"
+                        android:text="Comment:->"
+                        android:textStyle="bold"
+                        android:textSize="20dp"/>
+                    <TextView
+                        android:id="@+id/display_comment"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="60dp"
+                        android:orientation="horizontal">
+                        <EditText
+                            android:id="@+id/create_comment"
+                            android:layout_width="150dp"
+                            android:layout_height="40dp"
+                            android:hint="Reply..."/>
+                        <Button
+                            android:id="@+id/comment_button"
+                            android:layout_width="wrap_content"
+                            android:layout_height="40dp"
+                            android:text="Post"/>
+                    </LinearLayout>
                 </LinearLayout>
                 <Button
                     android:id="@+id/next_button"
@@ -89,14 +100,11 @@
                     android:layout_height="40dp"
                     android:text="Next"/>
             </LinearLayout>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:text="Subreddit"/>
-            <TextView
-                android:id="@+id/subreddit_names"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+           <Button
+               android:id="@+id/go_to_subreddit"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="Subreddits"/>
         </LinearLayout>
 
     </LinearLayout>
