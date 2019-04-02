@@ -22,12 +22,12 @@
                 android:id="@+id/profile_username"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp" />
-            <Button
-                android:id="@+id/go_to_subreddit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="right"
-                android:text="Subreddits"/>
+            <!--<Button-->
+                <!--android:id="@+id/go_to_subreddit"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:gravity="right"-->
+                <!--android:text="Subreddits"/>-->
         </LinearLayout>
         <TextView
             android:id="@+id/set_subreddit_name"
@@ -61,48 +61,54 @@
                     android:text="Post:->"
                     android:textStyle="bold"
                     android:textSize="20dp"/>
-                <TextView
-                    android:id="@+id/display_post"
-                    android:layout_width="200dp"
-                    android:layout_height="wrap_content"
-                    android:textSize="30dp"/>
+                <!--<TextView-->
+                    <!--android:id="@+id/display_post"-->
+                    <!--android:layout_width="200dp"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:textSize="30dp"/>-->
                 <LinearLayout
-                    android:id="@+id/reply_section"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/display_post"
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
-                    <TextView
-                        android:id="@+id/comment_header"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Comment:->"
-                        android:textStyle="bold"
-                        android:textSize="20dp"/>
-                    <TextView
-                        android:id="@+id/display_comment"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="60dp"
-                        android:orientation="horizontal">
-                        <EditText
-                            android:id="@+id/create_comment"
-                            android:layout_width="150dp"
-                            android:layout_height="40dp"
-                            android:hint="Reply..."/>
-                        <Button
-                            android:id="@+id/comment_button"
-                            android:layout_width="wrap_content"
-                            android:layout_height="40dp"
-                            android:text="Post"/>
-                    </LinearLayout>
-                </LinearLayout>
-                <Button
-                    android:id="@+id/next_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="40dp"
-                    android:text="Next"/>
+                    android:orientation="vertical"
+                    android:layout_gravity="left"></LinearLayout>
+                <!--<LinearLayout-->
+                    <!--android:id="@+id/reply_section"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:orientation="vertical">-->
+                    <!--<TextView-->
+                        <!--android:id="@+id/comment_header"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:text="Comment:->"-->
+                        <!--android:textStyle="bold"-->
+                        <!--android:textSize="20dp"/>-->
+                    <!--<TextView-->
+                        <!--android:id="@+id/display_comment"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content" />-->
+                    <!--<LinearLayout-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="60dp"-->
+                        <!--android:orientation="horizontal">-->
+                        <!--<EditText-->
+                            <!--android:id="@+id/create_comment"-->
+                            <!--android:layout_width="150dp"-->
+                            <!--android:layout_height="40dp"-->
+                            <!--android:hint="Reply..."/>-->
+                        <!--<Button-->
+                            <!--android:id="@+id/comment_button"-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="40dp"-->
+                            <!--android:text="Post"/>-->
+                    <!--</LinearLayout>-->
+                <!--</LinearLayout>-->
+                <!--<Button-->
+                    <!--android:id="@+id/next_button"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="40dp"-->
+                    <!--android:text="Next"/>-->
             </LinearLayout>
         </LinearLayout>
 

@@ -197,6 +197,22 @@ public class DatabaseHelper  extends SQLiteOpenHelper {
         }while(cursor.moveToNext());
         return data;
     }
+    public String getPost(String post_id){
+        SQLiteDatabase db=this.getReadableDatabase();
+        String[] columns={COL_9};
+        String selection=COL_11+"=?";
+        String[] selectionArgs={post_id};
+        Cursor cursor=db.query(TABLE_NAME_POST,columns,selection,selectionArgs,null,null,null);
+        String data;
+        if(cursor.getCount()==0){
+            return null;
+        }
+        else {
+            cursor.moveToFirst();
+            data= cursor.getString(0);
+            return data;
+        }
+    }
 //    public StringBuilder getPost(String username){
 //        SQLiteDatabase db=this.getReadableDatabase();
 //        String[] columns={COL_9,COL_11};

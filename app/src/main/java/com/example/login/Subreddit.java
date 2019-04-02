@@ -30,7 +30,8 @@ public class Subreddit extends AppCompatActivity {
     int new_subreddit_made=0;
     Button[] b1=new Button[20];
 
-    private class MyClickListener implements View.OnClickListener{
+
+    public class MyClickListener implements View.OnClickListener{
         int index;
         public MyClickListener(int index){
             this.index=index;
@@ -93,8 +94,8 @@ public class Subreddit extends AppCompatActivity {
 
         //CODE FOR RETRIEVING ALL SUBREDDIT FROM DATABASE AND DISPLAYING IT
         all_subreddit=db.getSubreddit();
-        Button[] b=new Button[all_subreddit.length];
         if(all_subreddit!=null){
+            Button[] b=new Button[all_subreddit.length];
             int total_subreddit=all_subreddit.length;
             for(i=0;i<total_subreddit;i++){
                 btn_id++;
