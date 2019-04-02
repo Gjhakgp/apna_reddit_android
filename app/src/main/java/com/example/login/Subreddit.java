@@ -21,8 +21,27 @@ public class Subreddit extends AppCompatActivity {
     String username;
     String[] all_subreddit;
     LinearLayout layout;
+    LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+            LinearLayout.LayoutParams.MATCH_PARENT,
+            LinearLayout.LayoutParams.WRAP_CONTENT);
     Intent intent;
     int i;
+    int btn_id=0;
+    int new_subreddit_made=0;
+    Button[] b1=new Button[20];
+
+    private class MyClickListener implements View.OnClickListener{
+        int index;
+        public MyClickListener(int index){
+            this.index=index;
+        }
+        @Override
+        public void onClick(View v){
+            intent=new Intent(Subreddit.this,PostActivity.class);
+            intent.putExtra("subreddit_name",all_subreddit[index]);
+            startActivity(intent);
+        }
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,10 +67,12 @@ public class Subreddit extends AppCompatActivity {
                     mTextCreateSubreddit.setText("");
                     //ADD CODE FOR APPENDING THIS SUBREDDIT ON THE WALL
                     Button btn=new Button(Subreddit.this);
-                    btn.setTag(subreddit_name);
+                    btn_id++;
+                    btn.setId(btn_id);
                     btn.setText("r/"+subreddit_name);
-                    layout.addView(btn);
-                    btn.setOnClickListener(new View.OnClickListener() {
+                    layout.addView(btn,params);
+                    b1[new_subreddit_made]=(Button)findViewById(btn_id);
+                    b1[new_subreddit_made].setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
                             //WRITE CODE FOR PASSING SUBREDDIT NAME TO POST ACTIVITY
@@ -60,6 +81,7 @@ public class Subreddit extends AppCompatActivity {
                             startActivity(intent);
                         }
                     });
+                    new_subreddit_made++;
 
                 }
                 else{
@@ -71,22 +93,26 @@ public class Subreddit extends AppCompatActivity {
 
         //CODE FOR RETRIEVING ALL SUBREDDIT FROM DATABASE AND DISPLAYING IT
         all_subreddit=db.getSubreddit();
+        Button[] b=new Button[all_subreddit.length];
         if(all_subreddit!=null){
             int total_subreddit=all_subreddit.length;
             for(i=0;i<total_subreddit;i++){
+                btn_id++;
                 Button btn=new Button(this);
-                btn.setTag(all_subreddit[i]);
+                btn.setId(btn_id);
                 btn.setText("r/"+all_subreddit[i]);
-                layout.addView(btn);
-                btn.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        //WRITE CODE FOR PASSING SUBREDDIT NAME TO POST ACTIVITY
-                        intent=new Intent(Subreddit.this,PostActivity.class);
-                        intent.putExtra("subreddit_name",all_subreddit[i]);
-                        startActivity(intent);
-                    }
-                });
+                layout.addView(btn,params);
+                b[i]=(Button)findViewById(btn_id);
+                b[i].setOnClickListener(new MyClickListener(i));
+//                b[i].setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//                        //WRITE CODE FOR PASSING SUBREDDIT NAME TO POST ACTIVITY
+//                        intent=new Intent(Subreddit.this,PostActivity.class);
+//                        intent.putExtra("subreddit_name",all_subreddit[i-1]);
+//                        startActivity(intent);
+//                    }
+//                });
             }
 //
         }

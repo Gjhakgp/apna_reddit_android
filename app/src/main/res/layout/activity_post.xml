@@ -10,7 +10,7 @@
         android:padding="16dp"
         android:orientation="vertical">
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="60dp"
             android:orientation="horizontal">
             <TextView
@@ -22,6 +22,12 @@
                 android:id="@+id/profile_username"
                 android:layout_width="wrap_content"
                 android:layout_height="40dp" />
+            <Button
+                android:id="@+id/go_to_subreddit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:text="Subreddits"/>
         </LinearLayout>
         <TextView
             android:id="@+id/set_subreddit_name"
@@ -38,14 +44,12 @@
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="40dp"
-                    android:text="Create Post"/>
+
                 <EditText
                     android:id="@+id/post_content"
                     android:layout_width="200dp"
-                    android:layout_height="40dp" />
+                    android:layout_height="40dp"
+                    android:hint="Post your thought"/>
                 <Button
                     android:id="@+id/post_submit"
                     android:layout_width="wrap_content"
@@ -100,11 +104,6 @@
                     android:layout_height="40dp"
                     android:text="Next"/>
             </LinearLayout>
-           <Button
-               android:id="@+id/go_to_subreddit"
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:text="Subreddits"/>
         </LinearLayout>
 
     </LinearLayout>

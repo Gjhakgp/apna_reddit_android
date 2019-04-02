@@ -27,7 +27,7 @@ public class PostActivity extends AppCompatActivity {
     String username;
 
     String current_post_id;
-    String current_subreddit_name="python";
+    String current_subreddit_name;
     String[][]  post;
     int post_index=0;
     int num_of_post;
